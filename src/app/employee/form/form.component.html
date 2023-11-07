@@ -1,0 +1,76 @@
+<app-form-layout>
+  <form [formGroup]="form" class="form" (ngSubmit)="submit()">
+    <h2 class="text-center m-0 mb-2">
+      {{ id ? 'Update Employee' : 'Create Employee' }}
+    </h2>
+    <div class="form-row">
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error class="text-danger" *ngIf="formErrors.firstName">
+          {{ formErrors.firstName }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error class="text-danger" *ngIf="formErrors.lastName">
+          {{ formErrors.lastName }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" />
+        <mat-error class="text-danger" *ngIf="formErrors.phone">
+          {{ formErrors.phone }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Birth Date</mat-label>
+        <input matInput formControlName="birthDate" [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Position</mat-label>
+        <mat-select formControlName="position">
+          <mat-option *ngFor="let position of positions" [value]="position">
+            {{ position }}
+          </mat-option>
+        </mat-select>
+        <mat-error class="text-danger" *ngIf="formErrors.position">
+          {{ formErrors.position }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" />
+      </mat-form-field>
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" />
+        <mat-error class="text-danger" *ngIf="formErrors.confirmPassword">
+          {{ formErrors.confirmPassword }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row mb-1">
+      <mat-checkbox formControlName="isActive">Is Active</mat-checkbox>
+    </div>
+    <div>
+      <button type="submit" class="w-100" mat-raised-button color="primary">
+        {{ id ? 'Update' : 'Create' }}
+      </button>
+    </div>
+  </form>
+</app-form-layout>

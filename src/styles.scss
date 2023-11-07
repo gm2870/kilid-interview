@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+:root {
+  --white-color: #fff;
+  --success-color: #198754;
+  --delete-color: #dc3545;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: #f6f6f6;
+}
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ui-primary: mat.define-palette(mat.$indigo-palette);
+.w-100 {
+  width: 100%;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.w-50 {
+  width: 50%;
+}
+.w-75 {
+  width: 75%;
+}
+.my-1 {
+  margin: 1rem 0;
+}
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+.m-0 {
+  margin: 0;
+}
+mat-form-field {
+  width: 100%;
+}
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+.text-center {
+  text-align: center;
+}
+
+.success-snack {
+  --mdc-snackbar-container-color: var(--success-color);
+}
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}

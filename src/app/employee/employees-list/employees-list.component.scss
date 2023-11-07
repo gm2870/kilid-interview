@@ -1,0 +1,28 @@
+.table-container {
+  margin: 30px auto;
+  position: relative;
+}
+.mat-mdc-row {
+  cursor: pointer;
+  &:hover {
+    background-color: #f6f6f6;
+  }
+}
+.spinner {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.name-input {
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #673ab7;
+  padding: 5px;
+}

@@ -1,0 +1,102 @@
+<app-toolbar></app-toolbar>
+<div class="container table-container mat-elevation-z8">
+  <div class="spinner" *ngIf="isLoadingResults">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+
+  <table mat-table [dataSource]="data">
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+        <p
+          *ngIf="!isLoadingResults && displayedColumns.length"
+          class="text-center"
+        >
+          No data matching the filter.
+        </p>
+      </td>
+    </tr>
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef style="max-width: 200px">
+        <div class="d-inline-block">Full Name</div>
+        <div
+          [formGroup]="searchForm"
+          style="margin-left: 5px"
+          class="d-inline-block"
+        >
+          <input
+            (keyup)="onSearch()"
+            formControlName="name"
+            class="name-input"
+            placeholder="Search Name"
+            (click)="$event.stopPropagation()"
+          />
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.firstName + ' ' + row.lastName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef disableClear>Phone Number</th>
+      <td mat-cell *matCellDef="let row">{{ row.phone }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef disableClear>
+        <div class="d-inline-block">Position</div>
+        <div
+          [formGroup]="searchForm"
+          style="margin-left: 5px"
+          class="d-inline-block"
+        >
+          <select
+            (change)="onSearch()"
+            class="name-input"
+            formControlName="position"
+            (click)="$event.stopPropagation()"
+          >
+            <option value="">Select Position</option>
+            <option *ngFor="let pos of positions" [value]="pos">
+              {{ pos }}
+            </option>
+          </select>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.position }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef disableClear>Active</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.isActive ? 'Yes' : 'No' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef disableClear>Remove</th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          appConfirmAction
+          (confirmed)="removeEmployee(row.id)"
+          (click)="$event.stopPropagation()"
+          mat-icon-button
+          color="warn"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      (click)="navigateToEdit(row.id)"
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="10"></mat-paginator>
+</div>

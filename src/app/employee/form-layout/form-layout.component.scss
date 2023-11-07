@@ -1,0 +1,25 @@
+.layout {
+  background-image: linear-gradient(to right, #4257cd, #c94ec1);
+  height: 100vh;
+  &-body {
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    display: flex;
+    padding: 50px;
+    border-radius: 12px;
+    justify-content: space-between;
+  }
+}
+.image-container {
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.1),
+    0 12px 20px 0 rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+
+.image {
+  width: 140px;
+  height: 140px;
+}

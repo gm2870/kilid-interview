@@ -1,0 +1,10 @@
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.confirmation-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
