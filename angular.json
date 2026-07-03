@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "kilid-task:build:production"
+              "buildTarget": "kilid-task:build:production"
             },
             "development": {
-              "browserTarget": "kilid-task:build:development"
+              "buildTarget": "kilid-task:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kilid-task:build"
+            "buildTarget": "kilid-task:build"
           }
         },
         "test": {
