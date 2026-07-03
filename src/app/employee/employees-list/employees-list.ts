@@ -14,16 +14,33 @@ import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 import { POSITIONS } from 'src/app/constants/positions.const';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { KeyValue } from '@angular/common';
+import { Toolbar } from '@app/toolbar/toolbar';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatTable, MatTableModule } from '@angular/material/table';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-employees-list',
-  templateUrl: 'employees-list.component.html',
-  styleUrls: ['employees-list.component.scss'],
-  standalone: false
+  templateUrl: 'employees-list.html',
+  styleUrls: ['employees-list.scss'],
+  imports: [
+    Toolbar,
+    MatProgressSpinner,
+    MatTable,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatIcon,
+    MatPaginator
+  ]
 })
-export class EmployeesListComponent implements AfterViewInit {
+export class EmployeesList implements AfterViewInit {
   displayedColumns: string[] = [
     'fullName',
     'phone',

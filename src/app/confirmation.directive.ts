@@ -1,7 +1,7 @@
 import { Output, HostListener, Directive } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { Confirmation } from './confirmation/confirmation';
 
 @Directive({
   selector: '[appConfirmAction]',
@@ -15,7 +15,7 @@ export class ConfirmationDirective {
   @HostListener('click')
   click(): void {
     this.dialog
-      .open(ConfirmationComponent, {
+      .open(Confirmation, {
         minWidth: '500px',
         minHeight: '150px'
       })

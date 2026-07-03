@@ -1,10 +1,10 @@
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import {
-  Component,
-  DestroyRef,
-  OnInit,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import { POSITIONS } from 'src/app/constants/positions.const';
 import { EmployeeService } from '../employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,14 +12,46 @@ import { NotificationService } from 'src/app/notification.service';
 import { ValidationService } from 'src/app/validation.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormProps, ErrorMessages } from '../employee.model';
+import { CommonModule } from '@angular/common';
+import {
+  MatError,
+  MatFormField,
+  MatLabel,
+  MatSelectModule
+} from '@angular/material/select';
+import { FormLayout } from '../form-layout/form-layout';
+import {
+  MatDatepicker,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-employee-form',
-  templateUrl: 'form.component.html',
-  styleUrls: ['form.component.scss'],
-  standalone: false
+  templateUrl: 'form.html',
+  styleUrls: ['form.scss'],
+  imports: [
+    CommonModule,
+    MatFormField,
+    MatLabel,
+    MatError,
+    MatDatepickerToggle,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatDatepicker,
+    FormLayout,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatButtonModule
+  ]
 })
-export class EmployeeFormComponent implements OnInit {
+export class EmployeeForm implements OnInit {
   id = '';
   form: FormGroup = this.fb.group(
     {

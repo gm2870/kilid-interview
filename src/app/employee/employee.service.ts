@@ -4,7 +4,7 @@ import { Employee } from './employee.model';
 import { StorageService } from '../storage.service';
 import { KeyValue } from '@angular/common';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class EmployeeService {
   searchChange = signal<KeyValue<string, string>[]>([]);
 
