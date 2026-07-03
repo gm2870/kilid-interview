@@ -14,5 +14,10 @@ export const routes: Routes = [
     path: 'employee/create',
     loadComponent: () =>
       import('./employee/form/form').then((m) => m.EmployeeForm)
+  },
+  {
+    path: ':entityId',
+    loadComponent: () =>
+      import('./employee/form/form').then((m) => m.EmployeeForm)
   }
 ];
