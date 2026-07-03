@@ -7,16 +7,20 @@
       <mat-form-field color="primary" appearance="outline">
         <mat-label>First Name</mat-label>
         <input matInput formControlName="firstName" />
-        <mat-error class="text-danger" *ngIf="formErrors.firstName">
-          {{ formErrors.firstName }}
-        </mat-error>
+        @if (formErrors.firstName) {
+          <mat-error class="text-danger">
+            {{ formErrors.firstName }}
+          </mat-error>
+        }
       </mat-form-field>
       <mat-form-field color="primary" appearance="outline">
         <mat-label>Last Name</mat-label>
         <input matInput formControlName="lastName" />
-        <mat-error class="text-danger" *ngIf="formErrors.lastName">
-          {{ formErrors.lastName }}
-        </mat-error>
+        @if (formErrors.lastName) {
+          <mat-error class="text-danger">
+            {{ formErrors.lastName }}
+          </mat-error>
+        }
       </mat-form-field>
     </div>
 
@@ -24,9 +28,11 @@
       <mat-form-field color="primary" appearance="outline">
         <mat-label>Phone</mat-label>
         <input matInput formControlName="phone" />
-        <mat-error class="text-danger" *ngIf="formErrors.phone">
-          {{ formErrors.phone }}
-        </mat-error>
+        @if (formErrors.phone) {
+          <mat-error class="text-danger">
+            {{ formErrors.phone }}
+          </mat-error>
+        }
       </mat-form-field>
       <mat-form-field color="primary" appearance="outline">
         <mat-label>Birth Date</mat-label>
@@ -42,13 +48,17 @@
       <mat-form-field color="primary" appearance="outline">
         <mat-label>Position</mat-label>
         <mat-select formControlName="position">
-          <mat-option *ngFor="let position of positions" [value]="position">
-            {{ position }}
-          </mat-option>
+          @for (position of positions; track position) {
+            <mat-option [value]="position">
+              {{ position }}
+            </mat-option>
+          }
         </mat-select>
-        <mat-error class="text-danger" *ngIf="formErrors.position">
-          {{ formErrors.position }}
-        </mat-error>
+        @if (formErrors.position) {
+          <mat-error class="text-danger">
+            {{ formErrors.position }}
+          </mat-error>
+        }
       </mat-form-field>
     </div>
     <div class="form-row">
@@ -59,9 +69,11 @@
       <mat-form-field color="primary" appearance="outline">
         <mat-label>Confirm Password</mat-label>
         <input matInput formControlName="confirmPassword" />
-        <mat-error class="text-danger" *ngIf="formErrors.confirmPassword">
-          {{ formErrors.confirmPassword }}
-        </mat-error>
+        @if (formErrors.confirmPassword) {
+          <mat-error class="text-danger">
+            {{ formErrors.confirmPassword }}
+          </mat-error>
+        }
       </mat-form-field>
     </div>
     <div class="form-row mb-1">

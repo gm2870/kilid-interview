@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     selector: 'app-confirmation',
     templateUrl: 'confirmation.component.html',
     styleUrls: ['confirmation.component.scss'],
-    imports: [NgIf, MatButtonModule, MatDialogModule]
+    imports: [MatButtonModule, MatDialogModule]
 })
 export class ConfirmationComponent {
   constructor(

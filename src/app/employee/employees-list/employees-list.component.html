@@ -1,18 +1,21 @@
 <app-toolbar></app-toolbar>
 <div class="container table-container mat-elevation-z8">
-  <div class="spinner" *ngIf="isLoadingResults">
-    <mat-spinner [diameter]="40"></mat-spinner>
-  </div>
+  @if (isLoadingResults) {
+    <div class="spinner">
+      <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+  }
 
   <table mat-table [dataSource]="data">
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" [attr.colspan]="displayedColumns.length">
-        <p
-          *ngIf="!isLoadingResults && displayedColumns.length"
-          class="text-center"
-        >
-          No data matching the filter.
-        </p>
+        @if (!isLoadingResults && displayedColumns.length) {
+          <p
+            class="text-center"
+            >
+            No data matching the filter.
+          </p>
+        }
       </td>
     </tr>
     <ng-container matColumnDef="fullName">
@@ -22,14 +25,14 @@
           [formGroup]="searchForm"
           style="margin-left: 5px"
           class="d-inline-block"
-        >
+          >
           <input
             (keyup)="onSearch()"
             formControlName="name"
             class="name-input"
             placeholder="Search Name"
             (click)="$event.stopPropagation()"
-          />
+            />
         </div>
       </th>
       <td mat-cell *matCellDef="let row">
@@ -49,17 +52,19 @@
           [formGroup]="searchForm"
           style="margin-left: 5px"
           class="d-inline-block"
-        >
+          >
           <select
             (change)="onSearch()"
             class="name-input"
             formControlName="position"
             (click)="$event.stopPropagation()"
-          >
+            >
             <option value="">Select Position</option>
-            <option *ngFor="let pos of positions" [value]="pos">
-              {{ pos }}
-            </option>
+            @for (pos of positions; track pos) {
+              <option [value]="pos">
+                {{ pos }}
+              </option>
+            }
           </select>
         </div>
       </th>
@@ -84,7 +89,7 @@
           (click)="$event.stopPropagation()"
           mat-icon-button
           color="warn"
-        >
+          >
           <mat-icon>delete</mat-icon>
         </button>
       </td>
