@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, effect } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Employee } from '../employee.model';
 import { MatPaginator } from '@angular/material/paginator';
@@ -18,10 +18,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { KeyValue } from '@angular/common';
 
 @Component({
-    selector: 'app-employees-list',
-    templateUrl: 'employees-list.component.html',
-    styleUrls: ['employees-list.component.scss'],
-    standalone: false
+  selector: 'app-employees-list',
+  templateUrl: 'employees-list.component.html',
+  styleUrls: ['employees-list.component.scss'],
+  standalone: false
 })
 export class EmployeesListComponent implements AfterViewInit {
   displayedColumns: string[] = [

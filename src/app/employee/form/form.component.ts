@@ -1,4 +1,9 @@
-import { Component, DestroyRef, OnInit } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  OnInit,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { POSITIONS } from 'src/app/constants/positions.const';
 import { EmployeeService } from '../employee.service';
@@ -9,10 +14,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormProps, ErrorMessages } from '../employee.model';
 
 @Component({
-    selector: 'app-employee-form',
-    templateUrl: 'form.component.html',
-    styleUrls: ['form.component.scss'],
-    standalone: false
+  selector: 'app-employee-form',
+  templateUrl: 'form.component.html',
+  styleUrls: ['form.component.scss'],
+  standalone: false
 })
 export class EmployeeFormComponent implements OnInit {
   id = '';

@@ -1,5 +1,5 @@
 
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     selector: 'app-confirmation',
     templateUrl: 'confirmation.component.html',
     styleUrls: ['confirmation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatButtonModule, MatDialogModule]
 })
 export class ConfirmationComponent {
