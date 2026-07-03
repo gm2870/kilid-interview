@@ -18,9 +18,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { KeyValue } from '@angular/common';
 
 @Component({
-  selector: 'app-employees-list',
-  templateUrl: 'employees-list.component.html',
-  styleUrls: ['employees-list.component.scss']
+    selector: 'app-employees-list',
+    templateUrl: 'employees-list.component.html',
+    styleUrls: ['employees-list.component.scss'],
+    standalone: false
 })
 export class EmployeesListComponent implements AfterViewInit {
   displayedColumns: string[] = [

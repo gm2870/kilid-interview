@@ -9,9 +9,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormProps, ErrorMessages } from '../employee.model';
 
 @Component({
-  selector: 'app-employee-form',
-  templateUrl: 'form.component.html',
-  styleUrls: ['form.component.scss']
+    selector: 'app-employee-form',
+    templateUrl: 'form.component.html',
+    styleUrls: ['form.component.scss'],
+    standalone: false
 })
 export class EmployeeFormComponent implements OnInit {
   id = '';
